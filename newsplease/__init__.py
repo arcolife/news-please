@@ -55,6 +55,9 @@ class NewsPlease:
         :param url:
         :return:
         """
+        if bool(html) is False:
+            return []
+
         extractor = article_extractor.Extractor(
             ['newspaper_extractor', 'readability_extractor', 'date_extractor', 'lang_detect_extractor'])
 

@@ -16,7 +16,7 @@ LOGGER = logging.getLogger(__name__)
 # customize headers
 HEADERS = {
     'Connection': 'close',
-    'User-Agent': 'Mozilla/5.0'
+    'User-Agent': 'Mozilla/6.0'
 }
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -86,7 +86,7 @@ class SimpleCrawler(object):
         for thread in threads:
             thread.start()
         for thread in threads:
-            thread.join()
+            thread.join(timeout=30)
 
         results = copy.deepcopy(SimpleCrawler._results)
         SimpleCrawler._results = {}
